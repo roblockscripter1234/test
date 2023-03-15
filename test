@@ -97,14 +97,7 @@ end
 --
 
 
-if SafeTrainAll == true then
-        local part = Instance.new("Part", game.Workspace)
-        part.Name = "SafePart"
-        part.Anchored = true
-        part.Size = Vector3.new(115, 1, 123)
-        part.Position = Vector3.new(-295.824, 16365.1, 56158.1)
-        
-        game.Players.LocalPlayer.HumanoidRootPart.CFrame = CFrame.new(-292, 16371, 56166)
+if SafeTrain == true then
         
         while task.wait() do
                    local args = {
@@ -140,6 +133,14 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
 equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
+local part = Instance.new("Part", game.Workspace)
+        part.Name = "SafePart"
+        part.Anchored = true
+        part.Size = Vector3.new(115, 1, 123)
+        part.Position = Vector3.new(-295.824, 16365.1, 56158.1)
+        
+        game.Players.LocalPlayer.HumanoidRootPart.CFrame = CFrame.new(-292, 16371, 56166)
+        
         end    
 print("Safe AutoFarm All is enabled!")
 end
