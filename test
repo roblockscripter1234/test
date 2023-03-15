@@ -1,4 +1,4 @@
-if Settings.Deathtrain then
+if Settings.Deathtrain == true then
 while task.wait() do
 local args = {
     [1] = {
@@ -10,8 +10,9 @@ game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
    print("AutoFarm BT is enabled!")
    end
-   
-elseif Settings.JFnMS then
+end
+
+if Settings.JFnMS == true then
    while task.wait() do
        local args = {
     [1] = {
@@ -28,6 +29,5 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-
    end
 end
