@@ -1,4 +1,5 @@
 if Settings.Deathtrain then
+while task.wait() do
 local args = {
     [1] = {
         [1] = "+BT1"
@@ -9,3 +10,4 @@ game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
    print("AutoFarm BT is enabled!")
    end
+end
