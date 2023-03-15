@@ -1,3 +1,11 @@
-if Settings.AutoFarm then
-   print("AutoFarm is enabled!")
+if Settings.BT then
+  while task.wait() do
+    local args = {
+      [1] = {
+         [1] = "+BT1"
+      }
+  }
+  game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+   print("AutoFarm BT is enabled!")
+   end
 end
