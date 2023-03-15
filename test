@@ -1,3 +1,4 @@
+-- BT
 if Settings.Deathtrain == true then
 while task.wait() do
 local args = {
@@ -7,11 +8,13 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-
-   print("AutoFarm BT is enabled!")
-   end
 end
+print("AutoFarm BT is enabled!")
+elseif Settings.Deathtrain == false then return end
+--
 
+
+-- JF and MS
 if Settings.JFnMS == true then
    while task.wait() do
        local args = {
@@ -30,4 +33,22 @@ local args = {
 
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
    end
+   print("AutoFarm JFnMS is enabled!")
+elseif Settings.JFnMS == false then return end
+--
+
+
+-- Fist
+if Settings.Fisttrain == true then
+   while task.wait() do
+       local args = {
+    [1] = {
+        [1] = "Add_FS_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 end
+print("AutoFarm Fisttrain is enabled!")
+elseif Settings.Fisttrain == false then return end
+--
