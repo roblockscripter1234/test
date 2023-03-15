@@ -1,9 +1,3 @@
-local enabled = settings.enabled
-
-if enabled then
-    local codeToExecute = "print('Hello, world!')"
-    local success, result = pcall(loadstring(codeToExecute))
-    if not success then
-        warn("Error running loadstring:", result)
-    end
+if Settings.AutoFarm then
+   print("AutoFarm is enabled!")
 end
