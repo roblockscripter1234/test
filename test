@@ -1,9 +1,3 @@
-main = {}; do
-main.equipTool = function(v)
-        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-        end
-    end
-
 -- BT
 if Settings.Deathtrain == true then
 while task.wait() do
@@ -101,6 +95,7 @@ end
 
 
 if SafeTrainAll == true then
+    local equipTool = game.Players.LocalPlayer.Character.Humanoid:EquipTool()
         local part = Instance.new("Part", game.Workspace)
         part.Name = "SafePart"
         part.Anchored = true
@@ -174,7 +169,7 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
 task.wait(1.25)
-main.equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
+equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
         end    
 print("Safe AutoFarm All is enabled!")
 end
