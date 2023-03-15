@@ -10,4 +10,24 @@ game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
    print("AutoFarm BT is enabled!")
    end
+   
+elseif Settings.JFnMS then
+   while task.wait() do
+       local args = {
+    [1] = {
+        [1] = "Add_MS_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        [1] = "Add_JF_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+   end
 end
