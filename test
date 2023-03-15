@@ -101,8 +101,6 @@ local part = Instance.new("Part", game.Workspace)
         part.Size = Vector3.new(115, 1, 123)
         part.Position = Vector3.new(-295.824, 16365.1, 56158.1)
         
-        game.Players.LocalPlayer.HumanoidRootPart.CFrame = CFrame.new(-292, 16371, 56166)
-        
         while task.wait() do
                    local args = {
     [1] = {
