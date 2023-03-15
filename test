@@ -1,8 +1,8 @@
 main = {}; do
 main.equipTool = function(v)
-        s.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-   end
-end
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+        end
+    end
 
 -- BT
 if Settings.Deathtrain == true then
