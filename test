@@ -1,3 +1,4 @@
+local equipTool = game.Players.LocalPlayer.Character.Humanoid:EquipTool()
 -- BT
 if Settings.Deathtrain == true then
 while task.wait() do
@@ -88,6 +89,8 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
 end
 print("AutoFarm All is enabled!")
 end
@@ -95,43 +98,11 @@ end
 
 
 if SafeTrainAll == true then
-    local equipTool = game.Players.LocalPlayer.Character.Humanoid:EquipTool()
         local part = Instance.new("Part", game.Workspace)
         part.Name = "SafePart"
         part.Anchored = true
         part.Size = Vector3.new(115, 1, 123)
         part.Position = Vector3.new(-295.824, 16365.1, 56158.1)
-        
-        local part2 = Instance.new("Part", game.Workspace)
-        part.Name = "HiPart"
-        part.Anchored = true
-        part.Size = Vector3.new(4, 14, 2)
-        part.Position = Vector3.new(-305.559, 16372.1, 56130.8)
-        
-        local part3 = Instance.new("Part", game.Workspace)
-        part.Name = "HiPart2"
-        part.Anchored = true
-        part.Size = Vector3.new(4, 2, 2)
-        part.Position = Vector3.new(-301.863, 16372.1, 56130.8)
-        
-        
-        local part4 = Instance.new("Part", game.Workspace)
-        part.Name = "HiPart3"
-        part.Anchored = true
-        part.Size = Vector3.new(4, 14, 2)
-        part.Position = Vector3.new(-298.559, 16372.1, 56130.8)
-        
-        local part5 = Instance.new("Part", game.Workspace)
-        part.Name = "HiPart4"
-        part.Anchored = true
-        part.Size = Vector3.new(4, 3, 2)
-        part.Position = Vector3.new(-289.559, 16377.6, 56130.8)
-        
-        local part6 = Instance.new("Part", game.Workspace)
-        part.Name = "HiPart5"
-        part.Anchored = true
-        part.Size = Vector3.new(4, 10, 2)
-        part.Position = Vector3.new(-289.559, 16370.1, 56130.8)
         
         game.Players.LocalPlayer.HumanoidRootPart.CFrame = CFrame.new(-292, 16371, 56166)
         
@@ -168,7 +139,6 @@ local args = {
 
 game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
-task.wait(1.25)
 equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
         end    
 print("Safe AutoFarm All is enabled!")
