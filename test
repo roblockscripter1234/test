@@ -1,5 +1,3 @@
-getgenv().trainAll = true
-
 -- BT
 if Settings.Deathtrain == true then
     while task.wait() do
@@ -111,7 +109,7 @@ if Settings.Deathtrain == true then
         part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-220, -2489, -82))
         
-        while task.wait() do
+        do
            local args = {
         [1] = {
             [1] = "Add_FS_Request"
