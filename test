@@ -55,8 +55,7 @@ if Settings.Deathtrain == true then
     
     
     -- Train all
-    function trainAll()
-    while Settings.TrainAll or Settings.Safetrain.SafeAll == true do
+    if Settings.TrainAll or Settings.Safetrain.SafeAll == true then
            while task.wait() do
            local args = {
         [1] = {
@@ -91,7 +90,6 @@ if Settings.Deathtrain == true then
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
     end
     print("AutoFarm All is enabled!")
-    end
     end
     --
     
