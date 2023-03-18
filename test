@@ -107,39 +107,6 @@ if Settings.Deathtrain == true then
         part.Size = Vector3.new(250, 50, 250)
         part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-220, -2489, -82))
-        
-        do
-           local args = {
-        [1] = {
-            [1] = "Add_FS_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = "+BT1"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-           local args = {
-        [1] = {
-            [1] = "Add_MS_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = "Add_JF_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-        end
+        print("bug?")
 end
 end
