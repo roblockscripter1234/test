@@ -55,7 +55,6 @@ if Settings.Deathtrain == true then
     
     
     -- Train all
-    if getgenv().trainAll == true then
     if Settings.TrainAll == true then
            while task.wait() do
            local args = {
