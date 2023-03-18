@@ -104,14 +104,14 @@ if Settings.Safetrain.FistStrength == true then
            local part = Instance.new("Part", game.Workspace)
                 part.Name = "SafePart"
                 part.Anchored = true
-                part.Size = Vector3.new(500, -50, 250)
+                part.Size = Vector3.new(500, 135, 250)
                 part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
    local pos = s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-        s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-220, -2489, -82)
+        s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-203, -2488, -50)
         task.wait(0.125)
         s.Players.LocalPlayer.Character:FindFirstChild('LowerTorso'):Destroy();
         task.wait(0.125)
         s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-        print("safe train!")
+        print("i hate niggers!")
 end
