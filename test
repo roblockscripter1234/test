@@ -1,114 +1,110 @@
-
 -- BT
 if Settings.Deathtrain == true then
-    while task.wait() do
-    local args = {
-        [1] = {
-            [1] = "+BT1"
-        }
+while task.wait() do
+local args = {
+    [1] = {
+        [1] = "+BT1"
     }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    end
-    print("AutoFarm BT is enabled!")
-    end
-    --
-    
-    
-    -- JF and MS
-    if Settings.JFnMS == true then
-       while task.wait() do
-           local args = {
-        [1] = {
-            [1] = "Add_MS_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = "Add_JF_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-       end
-       print("AutoFarm JFnMS is enabled!")
-    end
-    --
-    
-    
-    -- Fist
-    if Settings.Fisttrain == true then
-       while task.wait() do
-           local args = {
-        [1] = {
-            [1] = "Add_FS_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    end
-    print("AutoFarm Fisttrain is enabled!")
-    end
-    --
-    
-    
-    -- Train all
-    if Settings.TrainAll == true then
-           while task.wait() do
-           local args = {
-        [1] = {
-            [1] = "Add_FS_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = "+BT1"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-           local args = {
-        [1] = {
-            [1] = "Add_MS_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = "Add_JF_Request"
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-           end
-    print("AutoFarm All is enabled!")
-    end
-    --
-    
-    if Settings.Safetrain.SafeAll == true then
-                    
-         local s = setmetatable({}, {
-            __index = function(self, serv)
-                return game:GetService(serv)
-            end
-        })  
-    
-        local part = Instance.new("Part", game.Workspace)
-        part.Name = "SafePart"
-        part.Anchored = true
-        part.Size = Vector3.new(250, 50, 250)
-        part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-        s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-220, -2489, -82))
-        
-        
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 end
+print("AutoFarm BT is enabled!")
+end
+--
+
+
+-- JF and MS
+if Settings.JFnMS == true then
+   while task.wait() do
+       local args = {
+    [1] = {
+        [1] = "Add_MS_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        [1] = "Add_JF_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+   end
+   print("AutoFarm JFnMS is enabled!")
+end
+--
+
+
+-- Fist
+if Settings.Fisttrain == true then
+   while task.wait() do
+       local args = {
+    [1] = {
+        [1] = "Add_FS_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+print("AutoFarm Fisttrain is enabled!")
+end
+--
+
+
+-- Train all
+while Settings.TrainAll == true do
+       while task.wait() do
+       local args = {
+    [1] = {
+        [1] = "Add_FS_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        [1] = "+BT1"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+       local args = {
+    [1] = {
+        [1] = "Add_MS_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        [1] = "Add_JF_Request"
+    }
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+end
+print("AutoFarm All is enabled!")
+end
+--
+
+if Settings.Safetrain.SafeAll == true then
+                
+     local s = setmetatable({}, {
+        __index = function(self, serv)
+            return game:GetService(serv)
+        end
+    })  
+
+    local part = Instance.new("Part", game.Workspace)
+    part.Name = "SafePart"
+    part.Anchored = true
+    part.Size = Vector3.new(250, 50, 250)
+    part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-220, -2489, -82))
 end
