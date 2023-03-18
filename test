@@ -93,7 +93,7 @@ print("AutoFarm All is enabled!")
 end
 --
 
-if Settings.Safetrain.FistStrength == true then
+if Settings.Safetrain.SafeAll == true then
                 
      local s = setmetatable({}, {
         __index = function(self, serv)
