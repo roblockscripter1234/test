@@ -1,3 +1,4 @@
+
 -- BT
 if Settings.Deathtrain == true then
     while task.wait() do
@@ -107,6 +108,7 @@ if Settings.Deathtrain == true then
         part.Size = Vector3.new(250, 50, 250)
         part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
         s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-220, -2489, -82))
-        print("bug?")
+        
+        
 end
 end
