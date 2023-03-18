@@ -112,6 +112,8 @@ if Settings.Safetrain.FistStrength == true then
         task.wait(0.125)
         s.Players.LocalPlayer.Character:FindFirstChild('LowerTorso'):Destroy();
         task.wait(0.125)
+        while true do
         s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
         print("i hate niggers!")
+end
 end
