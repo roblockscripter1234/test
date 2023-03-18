@@ -1,3 +1,5 @@
+getgenv().trainAll = true
+
 -- BT
 if Settings.Deathtrain == true then
     while task.wait() do
@@ -89,7 +91,11 @@ if Settings.Deathtrain == true then
     
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
            end
-elseif Settings.Safetrain.SafeAll == true then
+    print("AutoFarm All is enabled!")
+    end
+    --
+    
+    if Settings.Safetrain.SafeAll == true then
                     
          local s = setmetatable({}, {
             __index = function(self, serv)
@@ -136,7 +142,5 @@ elseif Settings.Safetrain.SafeAll == true then
     }
     
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-    end
-    print("AutoFarm All is enabled!")
-    end
-    --
+        end
+end
