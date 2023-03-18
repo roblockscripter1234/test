@@ -108,11 +108,11 @@ if Settings.Safetrain.FistStrength == true then
                 part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
    local pos = s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-        s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-203, -2488, -50)
+        s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2304, 248, 1084)
         task.wait(0.125)
         s.Players.LocalPlayer.Character:FindFirstChild('LowerTorso'):Destroy();
         task.wait(0.125)
-        while true do
+        while task.wait() do
         s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
         print("i hate niggers!")
 end
