@@ -1,110 +1,127 @@
--- BT
-if Settings.Deathtrain == true then
-while task.wait() do
-local args = {
-    [1] = {
-        [1] = "+BT1"
-    }
-}
+-- filename
+local filename = "spts_velhub_thing.txt";
 
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+-- load
+function loadSettings()
+    print("Loading users settings...")
+    local HttpService = game:GetService("HttpService")
+    if (readfile and isfile and isfile(filename)) then
+    _G.Settings = HttpService:JSONDecode(readfile(filename));
+    print("Settings have been successfully loaded!")
+    print("--NEW VALUES--")
+    for i,v in pairs(_G.Settings) do
+        print(i,v)
+        end
+    end
 end
+
+-- save
+function saveSettings()
+    print("Saving users settings...");
+    local json;
+    local HttpService = game:GetService("HttpService");
+    if (writefile) then
+        json = HttpService:JSONEncode(_G.Settings);
+        writefile(filename, json);
+    else
+        print(" -- SORRY SETTINGS CAN NOT BE SAVED DUE TO PROBLEMS WITH YOUR EXECUTOR! -- (Probably not supported)")
+    end
+end
+
+-- BT
+function doDT(bool)
+    spawn(function()
+        _G.Settings.Deathtrain = bool
+        saveSettings()
+        print('Train MS and JF is: ', bool);
+        while _G.Settings.Deathtrain == true do
+            if bool then
+                local args = {[1] = {[1] = "+BT1"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+            end
 print("AutoFarm BT is enabled!")
+        end
+    end)
 end
 --
 
 
 -- JF and MS
-if Settings.JFnMS == true then
-   while task.wait() do
-       local args = {
-    [1] = {
-        [1] = "Add_MS_Request"
-    }
-}
+function autoMsnjf(bool)
+    spawn(function()
+        _G.Settings.JFnMS = bool
+        saveSettings()
+        print('Train MS and JF is: ', bool);
+        while _G.Settings.JFnMS == true do
+            if bool then
+                local args = {[1] = {[1] = "Add_MS_Request"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-
-local args = {
-    [1] = {
-        [1] = "Add_JF_Request"
-    }
-}
-
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-   end
+                local args = {[1] = {[1] = "Add_JF_Request"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+            end
    print("AutoFarm JFnMS is enabled!")
+        end
+    end)
 end
 --
 
 
 -- Fist
-if Settings.Fisttrain == true then
-   while task.wait() do
-       local args = {
-    [1] = {
-        [1] = "Add_FS_Request"
-    }
-}
-
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-end
+function trainFist(bool)
+    spawn(function()
+        _G.Settings.Fisttrain = bool
+        saveSettings()
+        print('Fist train is: ', bool);
+        while _G.Settings.Fisttrain == true do
+            if bool then
+                local args = {[1] = {[1] = "Add_FS_Request"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+            end
 print("AutoFarm Fisttrain is enabled!")
+        end
+    end)
 end
 --
 
 
 -- Train all
-if Settings.TrainAll == true then
-       while task.wait() do
-       local args = {
-    [1] = {
-        [1] = "Add_FS_Request"
-    }
-}
+function trainAll(bool)
+    spawn(function()
+        _G.Settings.TrainAll = bool
+        saveSettings()
+        print('Train all is: ', bool);
+        while _G.Settings.TrainAll == true do
+            if bool then
+                local args = {[1] = {[1] = "Add_FS_Request"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+                local args = {[1] = {[1] = "+BT1"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
-local args = {
-    [1] = {
-        [1] = "+BT1"
-    }
-}
+                local args = {[1] = {[1] = "Add_MS_Request"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 
-       local args = {
-    [1] = {
-        [1] = "Add_MS_Request"
-    }
-}
-
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-
-local args = {
-    [1] = {
-        [1] = "Add_JF_Request"
-    }
-}
-
-game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
-end
-print("AutoFarm All is enabled!")
-end
---
-
-if Settings.Safetrain.SafeAll == true then
-                
-     local s = setmetatable({}, {
-        __index = function(self, serv)
-            return game:GetService(serv)
+                local args = {[1] = {[1] = "Add_JF_Request"}}
+                game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+            end
+    print("AutoFarm All is enabled!")
         end
-    })  
+    end)
+end
 
-    local part = Instance.new("Part", game.Workspace)
-    part.Name = "SafePart"
-    part.Anchored = true
-    part.Size = Vector3.new(250, 50, 250)
-    part.Position = Vector3.new(-216.695847, -2500, -98.165863, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-    s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-220, -2489, -82))
+loadSettings()
+
+if _G.Settings.Deathtrain then
+   doDT() 
+end
+if _G.Settings.JFnMS then
+    autoMsnjf()
+end
+if _G.Settings.Fisttrain then
+    trainFist()
+end
+if _G.Settings.TrainAll then
+   trainAll() 
 end
